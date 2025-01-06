@@ -1,6 +1,6 @@
 
 module "service_apis" {
-  source                  = "../../modules/a01-gcp-service-apis"
+  source                  = "../../modules/a01_gcp_service_apis"
   project_id  = var.project_id
   api_services = var.api_list
 }
@@ -34,6 +34,6 @@ module "github_token_secret_access_cloud_build_sa" {
   secret_id = var.secret_id_github
   service_account_email = local.cloud_build_service_account_email
 
-  depends_on = [ module.enable_apis, module.secret_github_token ]
+  depends_on = [ module.service_apis, module.secret_github_token ]
 }
 

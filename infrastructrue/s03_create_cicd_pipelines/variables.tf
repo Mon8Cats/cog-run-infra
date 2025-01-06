@@ -20,7 +20,7 @@ variable "region" {
 variable "prefix_name" {
   description = "The logs bucket for infra cicd"
   type        = string
-  default = "sk"
+  #default = "sk"
 }
 
 # (7) log buckets for Cloud Build **********

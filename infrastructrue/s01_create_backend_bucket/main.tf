@@ -21,5 +21,5 @@ module "terraform_backend_storage_bucket" {
     }
   ]
 
-  depends_on   = [module.enable_apis]
+  depends_on   = [module.service_apis]
 }

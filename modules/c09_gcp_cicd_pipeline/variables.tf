@@ -71,12 +71,12 @@ variable "connection_parent" {
 
 
 variable "repo_name_gcp" {
-  description = "ID of the GitHub token secret in Secret Manager"
+  description = "The repository name in GCP"
   type        = string
 }
 
 variable "repo_uri_remote" {
-  description = "Custom service account email for Cloud Build"
+  description = "The github repository uri"
   type        = string
 }
 

@@ -7,6 +7,7 @@ echo $TF_VAR_project_number
 echo $TF_VAR_region
 
 #bucket_name = "should be unique"
+#check providers.tf
 */
 
 

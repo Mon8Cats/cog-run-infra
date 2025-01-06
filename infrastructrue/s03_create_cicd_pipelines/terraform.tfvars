@@ -11,8 +11,8 @@ echo $TF_VAR_region
 
 # (1) log buckets for Cloud Build : put them in the cloudbuild.yaml **********
 
-logs_bucket_infra = "xsky-run-infra-logs" 
-logs_bucket_app = "xsky-run-app-logs"
+logs_bucket_infra = "cog-run-infra-logs" 
+logs_bucket_app = "cog-run-app-logs"
 
 
 # (2) api list **********
@@ -36,15 +36,15 @@ secret_id_db_password = "db-password"
 
 # (4) github connection, github account, repos **********
 # my github account, settings/applications/configure -> check url
-connection_name_github = "github_connection"
+connection_name_github = "github-connection"
 installation_id_github_app = "55957239" # from GitHub
 github_account = "Mon8Cats"
-github_repo_infra = "cloud-run-infra"
-github_repo_app = "cloud-run-app"
-gcp_repo_infra = "cloud-run-infra"
-gcp_repo_app = "cloud-run-app"
+github_repo_infra = "cog-run-infra"
+github_repo_app = "cog-run-app"
+gcp_repo_infra = "cog-run-infra"
+gcp_repo_app = "cog-run-app"
 
-
+prefix_name = "sk"
 # (5) service accounts and roles
 cicd_sa_infra = "sa-cicd-infra"
 cicd_sa_app = "sa-cicd-app"

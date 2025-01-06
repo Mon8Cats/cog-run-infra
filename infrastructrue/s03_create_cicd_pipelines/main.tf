@@ -18,22 +18,21 @@ module "github_connection" {
 
 }
 
-
 module "cicd_pipeline_infra" {
-  source = "../../modules/g01_cicd_pipeline_wrapper"
+  source = "../../modules/c09_gcp_cicd_pipeline"
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = var.cicd_sa_name_infra
-  cicd_sa_role_list = var.cicd_sa_role_list_infra
-  bucket_name = var.logs_bucket_name_infra
+  cicd_sa_name = local.pf_cicd_sa_infra
+  cicd_sa_role_list = var.cicd_sa_infra_role_list
+  bucket_name = var.logs_bucket_infra
   wi_pool_id = local.wi_pool_id_infra
   wi_pool_name = local.wi_pool_name_infra
   wi_pool_provider_id = local.wi_pool_provider_id_infra
-  github_repository = var.repository_infra_github
+  github_repository = local.github_acct_repo_infra
   github_secret_id = var.secret_id_github
   connection_parent = module.github_connection.connection_name
-  repo_name_gcp = var.repo_name_infra_gcp
-  repo_uri_remote = var.repo_uri_infra_github 
+  repo_name_gcp = var.gcp_repo_infra
+  repo_uri_remote = local.github_uri_infra
 
   depends_on   = [module.github_connection]
 }
@@ -53,20 +52,20 @@ module "grant_member_secret_access" {
 
 
 module "cicd_pipeline_app" {
-  source = "../../modules/g01_cicd_pipeline_wrapper"
+  source = "../../modules/c09_gcp_cicd_pipeline"
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = var.cicd_sa_name_app
-  cicd_sa_role_list = var.cicd_sa_role_list_app
-  bucket_name = var.logs_bucket_name_app
+  cicd_sa_name = local.pf_cicd_sa_app
+  cicd_sa_role_list = var.cicd_sa_app_role_list
+  bucket_name = var.logs_bucket_app
   wi_pool_id = local.wi_pool_id_app
   wi_pool_name = local.wi_pool_name_app
   wi_pool_provider_id = local.wi_pool_provider_id_app
-  github_repository = var.repository_app_github
+  github_repository = local.github_acct_repo_app
   github_secret_id = var.secret_id_github
   connection_parent = module.github_connection.connection_name
-  repo_name_gcp = var.repo_name_app_gcp
-  repo_uri_remote = var.repo_uri_app_github 
+  repo_name_gcp = var.gcp_repo_app
+  repo_uri_remote = local.github_uri_app
 
   depends_on   = [module.github_connection]
 }
