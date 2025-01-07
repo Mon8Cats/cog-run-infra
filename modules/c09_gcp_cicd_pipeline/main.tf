@@ -12,7 +12,7 @@ module "cicd_service_account" {
 
 # a build log bucket
 module "build_logs_bucket" {
-  source                  = "../../modules/a02_gcs_storage_bucket"
+  source                  = "../../modules/a02_gcp_storage_bucket"
   project_id              = var.project_id
   bucket_name             = var.bucket_name
   location                = var.region  #"US", "EU", "ASIA" multi-regional bucket

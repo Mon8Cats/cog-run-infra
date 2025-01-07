@@ -37,9 +37,21 @@ module "cicd_pipeline_infra" {
   depends_on   = [module.github_connection]
 }
 
+module "secret_access_db_user_infra" {
+  source              = "../../modules/b03_gcp_secret_iam_member"
+  secret_id = var.secret_id_db_user
+  service_account_email = module.cicd_pipeline_infra.service_account_email
+}
 
-module "grant_member_secret_access" {
-  source    =  "../../modules/b03a_multiple_secrets_iam_member"
+module "secret_access_db_password_infra" {
+  source              =  "../../modules/b03_gcp_secret_iam_member"
+  secret_id = var.secret_id_db_password
+  service_account_email = module.cicd_pipeline_infra.service_account_email
+}
+
+/*
+module "grant_member_secret_access_infra" {
+  source    =  "../../modules/b03a_gcp_multiple_secrets_iam_member"
   member    =  module.cicd_pipeline_infra.service_account_email
   secret_ids = [
     var.secret_id_db_user,
@@ -49,7 +61,7 @@ module "grant_member_secret_access" {
 
   depends_on   = [module.cicd_pipeline_infra]
 }
-
+*/
 
 module "cicd_pipeline_app" {
   source = "../../modules/c09_gcp_cicd_pipeline"
@@ -70,8 +82,22 @@ module "cicd_pipeline_app" {
   depends_on   = [module.github_connection]
 }
 
-module "grant_member_secret_access" {
-  source    =  "../../modules/b03a_multiple_secrets_iam_member"
+
+module "secret_access_db_user_app" {
+  source              = "../../modules/b03_gcp_secret_iam_member"
+  secret_id = var.secret_id_db_user
+  service_account_email = module.cicd_pipeline_app.service_account_email
+}
+
+module "secret_access_db_password_app" {
+  source              =  "../../modules/b03_gcp_secret_iam_member"
+  secret_id = var.secret_id_db_password
+  service_account_email = module.cicd_pipeline_app.service_account_email
+}
+
+/*
+module "grant_member_secret_access_app" {
+  source    =  "../../modules/b03a_gcp_multiple_secrets_iam_member"
   member    =  module.cicd_pipeline_app.service_account_email
   secret_ids = [
     var.secret_id_db_user,
@@ -81,6 +107,7 @@ module "grant_member_secret_access" {
 
   depends_on   = [module.cicd_pipeline_app]
 }
+*/
 
 
 # create a service account for cloud run
