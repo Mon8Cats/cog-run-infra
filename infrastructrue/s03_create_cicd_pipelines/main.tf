@@ -5,6 +5,13 @@ module "enable_apis" {
   api_services = var.api_list
 }
 
+module "secret_iam_binding" {
+  source                = "../../modules/b03b_secret_iam_binding"
+  project_id            = var.project_id
+  secret_name           = var.github_secret_id
+  service_account_email = "service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+  role                  = "roles/secretmanager.secretAccessor"
+}
 
 
 module "github_connection" {

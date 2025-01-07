@@ -4,13 +4,15 @@ terraform state list
 
 
 # active project
-gcloud config set project sky-cloud-run
+gcloud config set project cog-run-lab
 # check billing - billing Menu > Billing> Billing Account
 
 # update secrete value
 
 
-
+gcloud projects add-iam-policy-binding cog-run-lab \
+    --member="serviceAccount:146758086101@cloudbuild.gserviceaccount.com" \
+    --role="roles/secretmanager.secretAccessor"
 
 
 
