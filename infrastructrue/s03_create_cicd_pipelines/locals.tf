@@ -1,15 +1,15 @@
 locals {
 
   pf_connection_name_github = "${var.prefix_name}-${var.connection_name_github}"
-  pf_cicd_sa_infra = "${var.prefix_name}-${var.cicd_sa_infra}"
-  pf_cicd_sa_app = "${var.prefix_name}-${var.cicd_sa_app}"
-  pf_cloud_run_sa = "${var.prefix_name}-${var.cloud_run_sa}"
+  #pf_cicd_sa_infra = "${var.prefix_name}-${var.cicd_sa_infra}"
+  #pf_cicd_sa_app = "${var.prefix_name}-${var.cicd_sa_app}"
+  #pf_cloud_run_sa = "${var.prefix_name}-${var.cloud_run_sa}"
 
-  cicd_sa_infra_email = "${local.pf_cicd_sa_infra}@${var.project_id}.iam.gserviceaccount.com"
-  cicd_sa_app_email = "${local.pf_cicd_sa_app}@${var.project_id}.iam.gserviceaccount.com"
-  cloud_run_sa_email = "${local.pf_cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"
-  #cloud_build_sa_email = "service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
-  cloud_build_sa_email = "${var.project_number}@cloudbuild.gserviceaccount.com"
+  cicd_sa_infra_email = "${var.cicd_sa_infra}@${var.project_id}.iam.gserviceaccount.com"
+  cicd_sa_app_email = "${var.cicd_sa_app}@${var.project_id}.iam.gserviceaccount.com"
+  cloud_run_sa_email = "${var.cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"
+  cloud_build_sa_email = "service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+  #cloud_build_sa_email = "${var.project_number}@cloudbuild.gserviceaccount.com"
 
   # globally unique names # pool id (32), pool name (128), provider id (32), project num (12)
   wi_pool = "${var.prefix_name}-wip"

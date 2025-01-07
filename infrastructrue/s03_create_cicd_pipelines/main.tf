@@ -6,10 +6,11 @@ module "enable_apis" {
 }
 
 module "secret_iam_binding" {
-  source                = "../../modules/b03b_secret_iam_binding"
+  source                = "../../modules/b03b_gcp_secret_iam_binding"
   project_id            = var.project_id
-  secret_name           = var.github_secret_id
-  service_account_email = "service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+  secret_id           = var.secret_id_github # to make github connection
+  service_account_email = local.cloud_build_sa_email
+  #"service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
   role                  = "roles/secretmanager.secretAccessor"
 }
 
@@ -29,7 +30,7 @@ module "cicd_pipeline_infra" {
   source = "../../modules/c09_gcp_cicd_pipeline"
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = local.pf_cicd_sa_infra
+  cicd_sa_name = var.cicd_sa_infra
   cicd_sa_role_list = var.cicd_sa_infra_role_list
   bucket_name = var.logs_bucket_infra
   wi_pool_id = local.wi_pool_id_infra
@@ -74,7 +75,7 @@ module "cicd_pipeline_app" {
   source = "../../modules/c09_gcp_cicd_pipeline"
   project_id = var.project_id
   region = var.region
-  cicd_sa_name = local.pf_cicd_sa_app
+  cicd_sa_name = var.cicd_sa_app
   cicd_sa_role_list = var.cicd_sa_app_role_list
   bucket_name = var.logs_bucket_app
   wi_pool_id = local.wi_pool_id_app
