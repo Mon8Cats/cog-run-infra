@@ -9,18 +9,20 @@ echo $TF_VAR_region
 #bucket_name = "should be unique"
 */
 
-
 api_list  = [
     "cloudresourcemanager.googleapis.com",
     "secretmanager.googleapis.com", 
     "storage.googleapis.com",
 ]
 
+
 secret_id_github = "github-token"
-secret_data_github = "github-token-value"
+#secret_data_github = "github-token-value"
+secret_id_db_user = "db-user9"
+secret_data_db_user = "db-user9"
+secret_id_db_password = "db-password9"
+secret_data_db_password = "db-password9"
 
-secret_id_db_user = "db-user"
-secret_data_db_user = "db-user-value"
 
-secret_id_db_password = "db-password"
-#secret_data_db_password = "db-password-value"
+connection_name_github = "github-connection-cog"
+app_installation_id_github = "55957239" 

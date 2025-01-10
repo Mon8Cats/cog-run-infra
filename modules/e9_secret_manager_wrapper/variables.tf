@@ -32,9 +32,7 @@ variable "secret_id_db_password" {
   type        = string
 }
 
-/*
 variable "secret_data_db_password" {
   description = "The db password Secret value"
   type        = string
 }
-*/

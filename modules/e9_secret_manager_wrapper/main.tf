@@ -15,7 +15,7 @@ module "github_token_secret_access_cloud_build_sa" {
   secret_id = var.secret_id_github
   service_account_email = local.cloud_build_service_account_email
 
-  depends_on = [ module.service_apis, module.secret_github_token ]
+  depends_on = [ module.secret_github_token ]
 }
 
 module "secret_db_user" {
@@ -25,15 +25,18 @@ module "secret_db_user" {
   secret_data = var.secret_data_db_user
 }
 
+/*
 resource "random_password" "db_password" {
   length  = 16
   special = true
 }
+*/
 
 module "secret_db_password" {
   source              =   "../e1_secret_manager"
   project_id          = var.project_id
   secret_id         = var.secret_id_db_password
-  secret_data = random_password.db_password.result
+  secret_data = var.secret_data_db_password
+  #secret_data = random_password.db_password.result
 }
 
