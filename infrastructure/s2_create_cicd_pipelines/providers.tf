@@ -13,7 +13,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket  = "cog1-run-tf-backend"
+    bucket  = "cog2-run-tf-backend"
     prefix  = "terraform/state/infra" 
   }
 }

@@ -1,4 +1,3 @@
-
 variable "project_id" {
   description = "Project ID for the GCP project"
   type        = string
@@ -7,17 +6,6 @@ variable "project_id" {
 variable "project_number" {
   description = "Project number for the GCP project"
   type        = string
-}
-
-variable "region" {
-  description = "Region in which GCP Resources to be created"
-  type = string
-  default = "us-east1"
-}
-
-variable "api_list" {
-  type        = list(string)
-  description = "A list of APIs"
 }
 
 variable "secret_id_github" {
