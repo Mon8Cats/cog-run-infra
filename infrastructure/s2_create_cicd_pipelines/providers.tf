@@ -11,15 +11,13 @@ terraform {
       version = ">= 6.0.0"
     }
   }
-  # no backend
+
   backend "gcs" {
-    bucket  = "cog-run-tf-backend"  # The GCS bucket name, cannot use variable
-    prefix  = "terraform/state/infra"  # Path to the state file within the bucket (use different paths for different environments)
-    #project = var.project_id    # The GCP project ID
+    bucket  = "cog1-run-tf-backend"
+    prefix  = "terraform/state/infra" 
   }
 }
 
-# Terraform Provider Block
 provider "google" {
   project = var.project_id
   region = var.region
