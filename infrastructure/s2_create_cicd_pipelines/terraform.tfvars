@@ -16,13 +16,18 @@ api_list  = [
 ]
 
 
-secret_id_github = "github-token"
+secret_id_github = "github-token9"
 #secret_data_github = "github-token-value"
 secret_id_db_user = "db-user9"
 secret_data_db_user = "db-user9"
 secret_id_db_password = "db-password9"
-secret_data_db_password = "db-password9"
-
+#secret_data_db_password = "db-password9"
 
 connection_name_github = "github-connection-cog"
 app_installation_id_github = "55957239" 
+
+github_account = "Mon8Cats"
+github_repo_infra = "cog-run-infra"
+github_repo_app = "cog-run-app"
+gcp_repo_infra = "cog-run-infra"
+gcp_repo_app = "cog-run-app"

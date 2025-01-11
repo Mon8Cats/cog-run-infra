@@ -61,3 +61,40 @@ variable "app_installation_id_github" {
   type        = string
   
 }
+
+
+/*
+variable "wi_pool_id" {
+  description = "Id of the workload identity pool"
+  type        = string
+}
+
+variable "wi_pool_name" {
+  description = "name of the workload identity pool"
+  type        = string
+}
+*/
+
+variable "github_account" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_repo_infra" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_repo_app" {
+  description = "The region for the resources"
+  type        = string
+}
+variable "gcp_repo_infra" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "gcp_repo_app" {
+  description = "The region for the resources"
+  type        = string
+}
