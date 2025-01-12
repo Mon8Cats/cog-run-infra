@@ -81,9 +81,9 @@ steps:
           echo "*******************************************************************************"
         fi
 
-logsBucket: "gs://sky-run-infra-logs"
+logsBucket: "gs://cog-run-infra-logs"
 
 substitutions:
-  _BRANCH_NAME: "dev"
-  _PROJECT_ID: "sky-cloud-run"
+  _BRANCH_NAME: "main"
+  _PROJECT_ID: "cog-run-lab"
   _REGION: "us-central1"
