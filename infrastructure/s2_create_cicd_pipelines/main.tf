@@ -110,7 +110,7 @@ module "github_repository_link" {
 
   region  = var.region
   connection_parent  = module.github_connection.connection_name
-  repo_name_gcp = var.repo_name_gcp
+  repo_name_gcp = var.repo_name_infra_gcp
   repo_uri_remote = local.github_repo_uri_infra
 
 }

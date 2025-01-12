@@ -29,8 +29,8 @@ app_installation_id_github = "55957239"
 github_account = "Mon8Cats"
 github_repo_infra = "cog-run-infra"
 github_repo_app = "cog-run-app"
-gcp_repo_infra = "cog-run-infra"
-gcp_repo_app = "cog-run-app"
+repo_name_infra_gcp = "cog-run-infra"
+#gcp_repo_app = "cog-run-app"
 
 cicd_log_bucket_infra = "cog-run-infra-logs"
 

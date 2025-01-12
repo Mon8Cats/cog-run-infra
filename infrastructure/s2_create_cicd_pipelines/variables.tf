@@ -115,13 +115,13 @@ variable "cicd_log_bucket_infra" {
 }
 
 
-variable "connection_parent" {
+variable "connection_name_github" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }
 
 
-variable "repo_name_gcp" {
+variable "repo_name_infra_gcp" {
   description = "The repository name in GCP"
   type        = string
 }
