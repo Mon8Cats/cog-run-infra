@@ -1,4 +1,6 @@
 
+https://stackoverflow.com/questions/76352037/error-400-request-contains-an-invalid-argument-while-creating-google-cloudbuild
+
 
 # all workload identity pools
 gcloud iam workload-identity-pools list --project=cog-run-lab

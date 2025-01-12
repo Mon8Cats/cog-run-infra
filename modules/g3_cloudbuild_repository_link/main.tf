@@ -5,6 +5,21 @@ resource "google_cloudbuildv2_repository" "my_repository" {
   remote_uri = var.repo_uri_remote
 }
 
+
+resource "google_cloudbuildv2_trigger" "my_trigger" {
+  location = google_cloudbuildv2_repository.my_repository.location
+
+  repository_event_config {
+    repository = google_cloudbuildv2_repository.my_repository.name
+    push {
+      branches = ["main"] # Or other branches as needed
+    }
+  }
+
+  filename = "cloudbuild.yaml" 
+}
+
+/*
 resource "google_cloudbuild_trigger" "trigger" {
   project  = var.project_id
   name     = var.trigger_name
@@ -23,3 +38,4 @@ resource "google_cloudbuild_trigger" "trigger" {
     }
   }
 }
+*/
