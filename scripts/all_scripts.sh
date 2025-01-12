@@ -1,5 +1,11 @@
 
 
+# all workload identity pools
+gcloud iam workload-identity-pools list --project=cog-run-lab
+gcloud iam workload-identity-pools list --location="global"
+ projects/146758086101/locations/global/workloadIdentityPools/wip-146758086101
+
+
 terraform state list
 
 

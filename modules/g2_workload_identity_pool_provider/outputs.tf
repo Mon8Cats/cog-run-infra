@@ -1,3 +1,4 @@
-output "github_pool_id" {
-  value = google_iam_workload_identity_pool.github_pool.id
+output "provider_name" {
+  description = "The full resource name of the workload identity pool provider."
+  value       = google_iam_workload_identity_pool_provider.github_provider.name
 }

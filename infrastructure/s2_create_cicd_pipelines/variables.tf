@@ -98,3 +98,31 @@ variable "gcp_repo_app" {
   description = "The region for the resources"
   type        = string
 }
+
+variable "cicd_sa_name" {
+  type        = string
+  description = "The ID of the service account to create (must be unique within the project)"
+
+}
+
+variable "cicd_sa_role_list" {
+  type        = list(string)
+  description = "A list of service account roles"
+}
+variable "cicd_log_bucket_infra" {
+  description = "The bucket for cloud build log"
+  type        = string
+}
+
+
+variable "connection_parent" {
+  description = "ID of the GitHub token secret in Secret Manager"
+  type        = string
+}
+
+
+variable "repo_name_gcp" {
+  description = "The repository name in GCP"
+  type        = string
+}
+

@@ -3,7 +3,15 @@ locals {
   wi_pool_name = "wip"
   wi_pool_id = "${local.wi_pool_name}-${var.project_number}"
   wi_pool_provider_id_infra = "${local.wi_pool_name}-prid-infra-${var.project_number}"
+
   github_acct_repo_infra = "${var.github_account}/${var.github_repo_infra}"
+  github_repo_uri_infra = "https://github.com/${local.github_acct_repo_infra}.git"
+
+  service_account_email = "${var.cicd_sa_name}@${var.project_id}.iam.gserviceaccount.com"
+
+
+  
+  
 }
 
 
@@ -47,10 +55,62 @@ module "workload_identity_pool" {
 }
 
 
+# for individual ci-cd pipeline
 module "workload_identity_pool_provider" {
-  source = "../../modules/g1_workload_identity_pool_provider"
+  source = "../../modules/g2_workload_identity_pool_provider"
   project_id   = var.project_id
-  wi_pool_id = module.workload_identity_pool.github_pool_id
+  # pool id only (no qualified name)
+  wi_pool_id = module.workload_identity_pool.github_pool_short_id
   wi_pool_provider_id= local.wi_pool_provider_id_infra
   github_repository = local.github_acct_repo_infra
+}
+
+
+module "cicd_service_account" {
+  source               = "../c1_service_account"
+  project_id           = var.project_id
+  service_account_name = var.cicd_sa_name
+  display_name         = "cicd Service Account"
+  description          = "This service account is used for CI/CD operations"
+
+  roles = var.cicd_sa_role_list
+
+}
+
+module "cicd_log_bucket" {
+  source                  = "../../modules/b1_storage_bucket"
+  project_id              = var.project_id
+  location                = var.region
+  bucket_name             = var.cicd_log_bucket_infra
+  storage_class           = "STANDARD"
+  force_destroy           = true
+
+  depends_on   = [module.cicd_service_account]
+}
+
+module "build_logs_bucket_iam_binding" {
+  source           = "../../modules/b2_storage_bucket_iam_binding"
+  bucket_name      = var.cicd_log_bucket_infra
+  service_account_email   = local.service_account_email
+  role             = "roles/storage.objectAdmin"
+
+  depends_on   = [module.cicd_logs_bucket]
+}
+
+module "github_token_secret_access" {
+  source              = "../../modules/e3_secret_iam_member"
+  secret_id = var.secret_id_github
+  service_account_email = module.cicd_service_account.service_account_email
+
+  depends_on   = [module.cicd_service_account]
+}
+
+module "github_repository_link" {
+  source = "../../modules/g03_cloudbuild_repository_link"
+
+  region  = var.region
+  connection_parent  = module.github_connection.connection_name
+  repo_name_gcp = var.repo_name_gcp
+  repo_uri_remote = local.github_repo_uri_infra
+
 }
