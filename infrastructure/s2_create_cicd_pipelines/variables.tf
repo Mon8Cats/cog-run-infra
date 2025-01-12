@@ -89,6 +89,8 @@ variable "github_repo_app" {
   description = "The region for the resources"
   type        = string
 }
+
+/*
 variable "gcp_repo_infra" {
   description = "The region for the resources"
   type        = string
@@ -98,6 +100,7 @@ variable "gcp_repo_app" {
   description = "The region for the resources"
   type        = string
 }
+*/
 
 variable "cicd_sa_name_infra" {
   type        = string
@@ -114,12 +117,12 @@ variable "cicd_log_bucket_infra" {
   type        = string
 }
 
-
+/*
 variable "connection_name_github" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }
-
+*/
 
 variable "repo_name_infra_gcp" {
   description = "The repository name in GCP"

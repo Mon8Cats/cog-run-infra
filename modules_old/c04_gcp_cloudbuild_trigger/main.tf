@@ -32,7 +32,7 @@ resource "google_cloudbuild_trigger" "cloud_build_trigger" {
   service_account = var.service_account
   included_files = ["**"]
   ignored_files  = []
-  disabled = filebase64sha512()
+  disabled = false
 
   github {    
     #owner  = var.connection_parent

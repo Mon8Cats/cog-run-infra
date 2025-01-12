@@ -107,10 +107,16 @@ module "github_token_secret_access" {
 
 module "github_repository_link" {
   source = "../../modules/g3_cloudbuild_repository_link"
-
+  project_id = var.project_id
   region  = var.region
   connection_parent  = module.github_connection.connection_name
   repo_name_gcp = var.repo_name_infra_gcp
   repo_uri_remote = local.github_repo_uri_infra
+
+  trigger_name = "cog-trg-infra"
+  github_account = var.github_account
+  branch_regex = "*"
+  cloudbuild_yaml_path="cloudbuild.yaml"
+  service_account_email = module.cicd_service_account.service_account_email
 
 }
