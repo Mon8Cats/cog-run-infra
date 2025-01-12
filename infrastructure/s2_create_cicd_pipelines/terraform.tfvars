@@ -33,3 +33,23 @@ gcp_repo_infra = "cog-run-infra"
 gcp_repo_app = "cog-run-app"
 
 cicd_log_bucket_infra = "cog-run-infra-logs"
+
+
+cicd_sa_name_infra = "sa-cicd-infra"
+
+cicd_sa_infra_role_list = [
+  "roles/cloudbuild.builds.editor",
+  "roles/storage.admin",
+  "roles/secretmanager.secretAccessor",
+  "roles/iam.serviceAccountUser",
+  "roles/resourcemanager.projectIamAdmin",
+  "roles/viewer",
+  "roles/compute.admin",
+  "roles/iam.serviceAccountKeyAdmin",
+  "roles/source.reader",
+  "roles/cloudbuild.builds.builder",
+  "roles/artifactregistry.admin",
+  "roles/cloudsql.admin",
+  "roles/compute.networkAdmin",
+  "roles/compute.securityAdmin"
+]

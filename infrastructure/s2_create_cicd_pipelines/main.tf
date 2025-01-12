@@ -7,7 +7,7 @@ locals {
   github_acct_repo_infra = "${var.github_account}/${var.github_repo_infra}"
   github_repo_uri_infra = "https://github.com/${local.github_acct_repo_infra}.git"
 
-  service_account_email = "${var.cicd_sa_name}@${var.project_id}.iam.gserviceaccount.com"
+  service_account_email = "${var.cicd_sa_name_infra}@${var.project_id}.iam.gserviceaccount.com"
 
 
   
@@ -67,13 +67,13 @@ module "workload_identity_pool_provider" {
 
 
 module "cicd_service_account" {
-  source               = "../c1_service_account"
+  source               = "../../modules/c1_service_account"
   project_id           = var.project_id
-  service_account_name = var.cicd_sa_name
+  service_account_name = var.cicd_sa_name_infra
   display_name         = "cicd Service Account"
   description          = "This service account is used for CI/CD operations"
 
-  roles = var.cicd_sa_role_list
+  roles = var.cicd_sa_infra_role_list
 
 }
 
@@ -94,7 +94,7 @@ module "build_logs_bucket_iam_binding" {
   service_account_email   = local.service_account_email
   role             = "roles/storage.objectAdmin"
 
-  depends_on   = [module.cicd_logs_bucket]
+  depends_on   = [module.cicd_log_bucket]
 }
 
 module "github_token_secret_access" {
@@ -106,7 +106,7 @@ module "github_token_secret_access" {
 }
 
 module "github_repository_link" {
-  source = "../../modules/g03_cloudbuild_repository_link"
+  source = "../../modules/g3_cloudbuild_repository_link"
 
   region  = var.region
   connection_parent  = module.github_connection.connection_name

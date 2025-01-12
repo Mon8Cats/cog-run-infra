@@ -1,4 +1,5 @@
 /* No space around =
+gcloud config set project cog-run-lab
 export TF_VAR_project_id="cog-run-lab"
 export TF_VAR_project_number="146758086101"
 export TF_VAR_region="us-central1"

@@ -99,13 +99,13 @@ variable "gcp_repo_app" {
   type        = string
 }
 
-variable "cicd_sa_name" {
+variable "cicd_sa_name_infra" {
   type        = string
   description = "The ID of the service account to create (must be unique within the project)"
 
 }
 
-variable "cicd_sa_role_list" {
+variable "cicd_sa_infra_role_list" {
   type        = list(string)
   description = "A list of service account roles"
 }
