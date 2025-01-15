@@ -44,19 +44,14 @@ secret_id_db_password = "db-password"
 
 connection_name_github = "github-connection"
 app_installation_id_github = "55957239" 
-
 github_account = "Mon8Cats"
-github_repo_infra = "cog-run-infra"
-github_repo_app = "cog-run-app"
-repo_name_infra_gcp = "cog-run-infra"
-#gcp_repo_app = "cog-run-app"
+
 
 cicd_log_bucket_infra = "morxxx-fun-infra-logs"
-
-
+github_repo_infra = "cog-run-infra"
+repo_name_gcp_infra = "cog-run-infra"
 cicd_sa_id_infra = "sa-cicd-infra"
-
-cicd_sa_infra_role_list = [
+cicd_sa_role_list_infra = [
   "roles/cloudbuild.builds.editor",
   "roles/storage.admin",
   "roles/secretmanager.secretAccessor",
@@ -74,7 +69,28 @@ cicd_sa_infra_role_list = [
 ]
 
 
+github_repo_app = "cog-run-app"
+repo_name_gcp_app = "cog-run-app"
+#gcp_repo_app = "cog-run-app"
 
+cicd_log_bucket_app = "morxxx-fun-infra-logs"
+cicd_sa_id_app= "sa-cicd-infra"
+cicd_sa_role_list_app = [
+  "roles/cloudbuild.builds.editor",
+  "roles/storage.admin",
+  "roles/secretmanager.secretAccessor",
+  "roles/iam.serviceAccountUser",
+  "roles/resourcemanager.projectIamAdmin",
+  "roles/viewer",
+  "roles/compute.admin",
+  "roles/iam.serviceAccountKeyAdmin",
+  "roles/source.reader",
+  "roles/cloudbuild.builds.builder",
+  "roles/artifactregistry.admin",
+  "roles/cloudsql.admin",
+  "roles/compute.networkAdmin",
+  "roles/compute.securityAdmin"
+]
 
 
 
