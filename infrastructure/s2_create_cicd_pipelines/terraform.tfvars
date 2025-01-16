@@ -73,7 +73,7 @@ github_repo_app = "cog-run-app"
 repo_name_gcp_app = "cog-run-app"
 #gcp_repo_app = "cog-run-app"
 
-cicd_log_bucket_app = "morxxx-fun-infra-logs"
+cicd_log_bucket_app = "morxxx-fun-app-logs"
 cicd_sa_id_app= "sa-cicd-infra"
 cicd_sa_role_list_app = [
   "roles/cloudbuild.builds.editor",
