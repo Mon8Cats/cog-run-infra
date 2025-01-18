@@ -81,7 +81,7 @@ steps:
           echo "*******************************************************************************"
         fi
 
-logsBucket: "gs://morxxx-fun-infra-logs"
+logsBucket: "gs://srw-run-infra-logs"
 
 substitutions:
   _BRANCH_NAME: "main"

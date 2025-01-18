@@ -12,9 +12,9 @@ things to check
 
 
 /* No space around =
-gcloud config set project mor-fun-lab
-export TF_VAR_project_id="mor-fun-lab"
-export TF_VAR_project_number="499677090453"
+gcloud config set project srw-run
+export TF_VAR_project_id="srw-run"
+export TF_VAR_project_number="813763699128"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_project_number
@@ -47,7 +47,7 @@ app_installation_id_github = "55957239"
 github_account = "Mon8Cats"
 
 
-cicd_log_bucket_infra = "morxxx-fun-infra-logs"
+cicd_log_bucket_infra = "srw-run-infra-logs"
 github_repo_infra = "cog-run-infra"
 repo_name_gcp_infra = "cog-run-infra"
 cicd_sa_id_infra = "sa-cicd-infra"
@@ -73,8 +73,8 @@ github_repo_app = "cog-run-app"
 repo_name_gcp_app = "cog-run-app"
 #gcp_repo_app = "cog-run-app"
 
-cicd_log_bucket_app = "morxxx-fun-app-logs"
-cicd_sa_id_app= "sa-cicd-infra"
+cicd_log_bucket_app = "srw-run-app-logs"
+cicd_sa_id_app= "sa-cicd-app"
 cicd_sa_role_list_app = [
   "roles/cloudbuild.builds.editor",
   "roles/storage.admin",

@@ -5,6 +5,7 @@ resource "google_cloudbuildv2_repository" "my_repository" {
   remote_uri = var.repo_uri_remote
 }
 
+/*
 resource "google_cloudbuild_trigger" "repo_trigger" {
   name        = "repo-trigger"
   location    = var.region
@@ -16,11 +17,11 @@ resource "google_cloudbuild_trigger" "repo_trigger" {
     repository = google_cloudbuildv2_repository.my_repository.name
     #filter = "refs/heads/*"
     #repository_type = "GITHUB" 
-    /*
+    
     push {
       branch = ".*"
     }
-    */
+    
   }
 
   source_to_build {
@@ -35,7 +36,7 @@ resource "google_cloudbuild_trigger" "repo_trigger" {
 }
 
 
-/*
+
 resource "google_cloudbuild_trigger" "repo-trigger" {
   name        = "repo-trigger"
   location    = var.region

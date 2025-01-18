@@ -1,7 +1,7 @@
 /* No space around =
-gcloud config set project mor-fun-lab
-export TF_VAR_project_id="mor-fun-lab"
-export TF_VAR_project_number="499677090453"
+gcloud config set project srw-run
+export TF_VAR_project_id="srw-run"
+export TF_VAR_project_number="813763699128"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_project_number

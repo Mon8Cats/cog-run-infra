@@ -13,7 +13,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket  = "mor-fun-tf-backend"
+    bucket  = "srw-run-tf-backend"
     prefix  = "terraform/state/infra" 
   }
 }
