@@ -86,9 +86,12 @@ logsBucket: "gs://${_LOG_BUCKET}"
 substitutions:
   _BRANCH_NAME: "main"
   _REGION: "us-central1"
-  _LOG_BUCKET: "spn-run-app-logs"
+  #_LOG_BUCKET: "spn-run-app-logs"
 
 options:
   env:
     - PROJECT_ID=${_PROJECT_ID}
     - PROJECT_NUMBER=${_PROJECT_NUMBER}
+    - LOG_BUCKET=${_LOG_BUCKET}
+    
+    
