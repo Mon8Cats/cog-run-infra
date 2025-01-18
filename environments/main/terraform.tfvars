@@ -1,7 +1,7 @@
 /* No space around =
-gcloud config set project srw-run
-export TF_VAR_project_id="srw-run"
-export TF_VAR_project_number="813763699128"
+gcloud config set project spn-run
+export TF_VAR_project_id="spn-run"
+export TF_VAR_project_number="1001306576441"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_project_number
@@ -12,18 +12,18 @@ echo $TF_VAR_region
 
 
 
-vpc_name = "mor-vpc"
-subnet_name = "mor-subnet"
+vpc_name = "spn-vpc"
+subnet_name = "spn-subnet"
 #subnet_region = "us-central1"
 subnet_ip_range = "10.129.0.0/20"
 
-artifact_repository_id = "mor-art"
+artifact_repository_id = "spn-art"
 
 secret_id_db_user = "db-user"
 secret_id_db_password = "db-password"
 
-sql_instance_name = "mor-sql2"
-sql_db_name = "mor-db2"
+sql_instance_name = "spn-sql"
+sql_db_name = "spn-db"
 
 
 

@@ -1,5 +1,5 @@
 locals {
-  wip_name_unique = "xxxwip"
+  wip_name_unique = "wip"
   wip_id = "${local.wip_name_unique}-${var.project_number}"
 
   #
@@ -15,6 +15,13 @@ locals {
   github_repo_uri_app = "https://github.com/${local.github_acct_repo_app}.git"
   #cicd_sa_email_app = "${var.cicd_sa_id_app}@${var.project_id}.iam.gserviceaccount.com" 
 
+}
+
+# do manually enable?
+# gcloud services enable iam.googleapis.com --project=spn-run ?
+resource "google_project_service" "iam" {
+  project = var.project_id
+  service = "iam.googleapis.com"
 }
 
 module "service_apis" {
