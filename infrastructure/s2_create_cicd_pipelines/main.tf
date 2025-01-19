@@ -79,6 +79,7 @@ module "cicd_pipeline_infra" {
   wip_name = module.workload_identity_pool.wip_name
   wip_short_id = module.workload_identity_pool.wip_short_id
   wip_provider_id = local.wip_pid_infra
+  wip_provider_display_name = "wip-infra"
   github_acct_repo = local.github_acct_repo_infra
   #
   repo_name_gcp = var.github_repo_infra
@@ -101,6 +102,7 @@ module "cicd_pipeline_app" {
   wip_name = module.workload_identity_pool.wip_name
   wip_short_id = module.workload_identity_pool.wip_short_id
   wip_provider_id = local.wip_pid_app
+  wip_provider_display_name = "wip-infra"
   github_acct_repo = local.github_acct_repo_app
   #
   repo_name_gcp = var.github_repo_app

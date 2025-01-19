@@ -8,7 +8,7 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "mor-fun-tf-backend"
+    bucket = "spn-run-tf-backend"
     prefix = "env/dev"    
   }
 }

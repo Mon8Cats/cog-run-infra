@@ -83,6 +83,9 @@ module "workload_identity_pool_provider" {
   wip_provider_id= var.wip_provider_id
   github_acct_repo = var.github_acct_repo
   cicd_sa_id = var.cicd_sa_id
+  wip_provider_display_name = var.wip_provider_display_name
+
+  depends_on   = [module.cicd_service_account]
 }
 
 # repository link
@@ -94,6 +97,8 @@ module "gcp_repo_link" {
   connection_parent = var.repo_connection_name
   repo_uri_remote = var.repo_uri_remote
   build_sa_name = var.cicd_sa_id
+
+  depends_on   = [module.cicd_service_account]
 }
 
 /*

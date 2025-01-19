@@ -1,4 +1,15 @@
 
+ gcloud artifacts repositories delete spn-art \
+    --location=us-central1 \
+    --project=spn-run
+
+ gcloud artifacts repositories list --project=spn-run
+
+terraform state rm module.workload_identity_pool.google_iam_workload_identity_pool.github_pool
+
+
+
+
 https://stackoverflow.com/questions/76352037/error-400-request-contains-an-invalid-argument-while-creating-google-cloudbuild
 
 

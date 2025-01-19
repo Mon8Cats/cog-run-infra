@@ -8,7 +8,7 @@ resource "google_iam_workload_identity_pool_provider" "github_provider" {
   project  = var.project_id 
   workload_identity_pool_id         = var.wip_short_id
   workload_identity_pool_provider_id = var.wip_provider_id #short id?
-  display_name                      = "WI Pool Provider"
+  display_name                      = var.wip_provider_display_name
 
   attribute_mapping = {
     "google.subject"       = "assertion.sub"

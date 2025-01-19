@@ -54,7 +54,8 @@ repo_name_gcp_infra = "cog-run-infra"
 
 cicd_sa_role_list_infra = [
   "roles/cloudbuild.builds.editor",
-  "roles/storage.admin",
+  "roles/storage.admin", 
+  "roles/storage.objectViewer",  #"roles/storage.objectAdmin",
   "roles/secretmanager.secretAccessor",
   "roles/iam.serviceAccountUser",
   "roles/resourcemanager.projectIamAdmin",
@@ -78,6 +79,7 @@ repo_name_gcp_app = "cog-run-app"
 cicd_sa_role_list_app = [
   "roles/cloudbuild.builds.editor",
   "roles/storage.admin",
+  "roles/storage.objectViewer",  #"roles/storage.objectAdmin",
   "roles/secretmanager.secretAccessor",
   "roles/iam.serviceAccountUser",
   "roles/resourcemanager.projectIamAdmin",

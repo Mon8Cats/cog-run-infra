@@ -27,6 +27,11 @@ variable "wip_provider_id" {
   type        = string
 }
 
+variable "wip_provider_display_name" {
+  description = "Id of the workload idenitity provider"
+  type        = string
+}
+
 # git_acct/git_repo format
 variable "github_acct_repo" {
   description = "Name of the github_repository"
