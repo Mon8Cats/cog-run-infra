@@ -75,8 +75,7 @@ module "cloud_run_service_account" {
   display_name         = "Cloud Run Service Account"
   description          = "This service account is used for cloud run service"
 
-  roles = cloud_run_sa_role_list
-
+  roles = var.cloud_run_sa_role_list
 }
 
 
