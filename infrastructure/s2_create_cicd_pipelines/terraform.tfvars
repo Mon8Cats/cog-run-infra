@@ -92,7 +92,8 @@ cicd_sa_role_list_app = [
   "roles/artifactregistry.admin",
   "roles/cloudsql.admin",
   "roles/compute.networkAdmin",
-  "roles/compute.securityAdmin"
+  "roles/compute.securityAdmin",
+  "roles/serviceusage.serviceUsageAdmin"
 ]
 
 
