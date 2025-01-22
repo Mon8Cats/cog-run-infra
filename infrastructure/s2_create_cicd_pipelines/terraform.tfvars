@@ -58,6 +58,7 @@ cicd_sa_role_list_infra = [
   "roles/storage.objectViewer",  #"roles/storage.objectAdmin",
   "roles/secretmanager.secretAccessor",
   "roles/iam.serviceAccountUser",
+  "roles/iam.serviceAccountAdmin", # Add this role
   "roles/resourcemanager.projectIamAdmin",
   "roles/viewer",
   "roles/compute.admin",

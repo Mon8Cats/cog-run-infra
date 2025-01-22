@@ -85,6 +85,7 @@ module "cloud_run_iam_binding" {
   cloud_run_sa = "${var.cloud_run_sa_name}@${var.project_id}.iam.gserviceaccount.com"
   cicd_sa      = "${var.cicd_sa_id_app}@${var.project_id}.iam.gserviceaccount.com"
 
+  depends_on = [ module.cloud_run_service_account ]
 }
 
 
