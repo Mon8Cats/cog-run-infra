@@ -25,8 +25,12 @@ secret_id_db_password = "db-password"
 sql_instance_name = "spn-sql"
 sql_db_name = "spn-db"
 
-
-
+cloud_run_sa_name = "sa-cloud-run"
+cicd_sa_id_app = "sa-cicd-app"
+cloud_run_sa_role_list = [
+  "roles/secretmanager.secretAccessor",
+  "roles/cloudsql.client",
+]
 
 # infra-service-account@win-gke-cicd.iam.gserviceaccount.com
 #wi_sa_id = "projects/${var.project_id}/serviceAccounts/infra-service-account@win-gke-cicd.iam.gserviceaccount.com"

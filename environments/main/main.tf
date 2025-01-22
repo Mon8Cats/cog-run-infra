@@ -65,6 +65,30 @@ module "cloud_sql_postgres" {
   secret_id_db_password = var.secret_id_db_password
 }
 
+
+
+# create a service account for cloud run
+module "cloud_run_service_account" {
+  source               = "../../modules/c1_service_account"
+  project_id           = var.project_id
+  service_account_name = var.cloud_run_sa_name
+  display_name         = "Cloud Run Service Account"
+  description          = "This service account is used for cloud run service"
+
+  roles = cloud_run_sa_role_list
+
+}
+
+
+module "cloud_run_iam_binding" {
+  source       = "../../modules/c2_service_account_iam_binding"
+  project_id   = var.project_id
+  cloud_run_sa = "${var.cloud_run_sa_name}@${var.project_id}.iam.gserviceaccount.com"
+  cicd_sa      = "${var.cicd_sa_id_app}@${var.project_id}.iam.gserviceaccount.com"
+
+}
+
+
 /*
 # Data source to retrieve the db_user from Secret Manager
 data "google_secret_manager_secret_version" "db_user" {

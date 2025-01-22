@@ -64,7 +64,22 @@ variable "sql_db_name" {
   type        = string
 }
 
+variable "cloud_run_sa_name" {
+  type        = string
+  description = "The ID of the service account to create (must be unique within the project)"
+}
 
+variable "cloud_run_sa_role_list" {
+  type        = list(string)
+  description = "A list of APIs"
+  #default     = ["value1", "value2", "value3"]  # optional default value
+}
+
+
+variable "cicd_sa_id_app" {
+  type        = string
+  description = "The ID of the service account to create (must be unique within the project)"
+}
 
 /*
 variable "wi_sa_id" {
