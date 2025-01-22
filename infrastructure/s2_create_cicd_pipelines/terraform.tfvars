@@ -93,7 +93,9 @@ cicd_sa_role_list_app = [
   "roles/cloudsql.admin",
   "roles/compute.networkAdmin",
   "roles/compute.securityAdmin",
-  "roles/serviceusage.serviceUsageAdmin"
+  "roles/serviceusage.serviceUsageAdmin",
+  "roles/run.admin"
+  
 ]
 
 
